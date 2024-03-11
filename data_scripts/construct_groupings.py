@@ -17,26 +17,29 @@ def mkdir(dir):
     if not os.path.exists(dir):
         os.makedirs(dir)
 
-codes_path = r"F:\Datasets\BCSS_InstaDeep\meta\gtruth_codes.tsv"
-code_dict = {}
-tissue_ids = {}
+def read_tsv(path):
+    code_dict = {}
+    tissue_ids = {}
+    with open(path, 'r', newline='') as tsv_file:
+        # Skip the header line
+        next(tsv_file, None)
+        # Iterate over each line in the TSV file
+        for line in tsv_file:
+            # Split each line into two parts based on the space character
+            parts = line.strip().split()
+            # Ensure that there are two parts in each line
+            if len(parts) == 2:
+                # Assign the first part as the key and the second part as the value in the dictionary
+                key, value = parts
+                code_dict[int(value)] = key  # Assuming the values are integers, adjust if necessary
+                tissue_ids[key] = int(value)
+    return code_dict, tissue_ids
 
-with open(codes_path, 'r', newline='') as tsv_file:
-    # Skip the header line
-    next(tsv_file, None)
-    # Iterate over each line in the TSV file
-    for line in tsv_file:
-        # Split each line into two parts based on the space character
-        parts = line.strip().split()
-        # Ensure that there are two parts in each line
-        if len(parts) == 2:
-            # Assign the first part as the key and the second part as the value in the dictionary
-            key, value = parts
-            code_dict[int(value)] = key  # Assuming the values are integers, adjust if necessary
-            tissue_ids[key] = int(value)
-
-input_dir = r"F:\Datasets\BCSS_InstaDeep\labels"
-output_dir = r"F:\Datasets\BCSS_InstaDeep\grouped_labels"
+    
+codes_path = "./data/gtruth_codes.tsv"
+code_dict, tissue_ids = read_tsv(codes_path)
+input_dir = "./data/labels"
+output_dir = "./data/grouped_labels"
 tissue_groups = {1: ['tumor','angioinvasion', 'dcis'], 2: ['stroma'], 3: ['lymphocytic_infiltrate', 'plasma_cells', 'other_immune_infiltrate'], 4: ['necrosis_or_debris'], 5: ['others']}
 
 def create_mapping_dict(tissue_groups):
