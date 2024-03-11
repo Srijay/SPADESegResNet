@@ -53,7 +53,7 @@ Now, we are set to train the model. Please update the training parameters inside
 python main.py 
 ```
 
-All three models used in the paper — the proposed SPADESegResNet model and the baseline models UNet and UNet++ — are placed inside the 'model' folder. Please set the model you would like to train in the config.txt.
+All three models discussed in the paper—the proposed SPADESegResNet model, along with the baseline models UNet and UNet++ — have their scripts located in the 'model' folder. Please set the model you would like to train in the config.txt. The trained models are not uploaded, as Github restricts file uploads exceeding 25MB. Kindly reach out to me if you need access to the trained models.
 
 # Testing and Evaluation
 
