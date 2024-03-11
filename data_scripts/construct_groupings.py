@@ -35,8 +35,8 @@ with open(codes_path, 'r', newline='') as tsv_file:
             code_dict[int(value)] = key  # Assuming the values are integers, adjust if necessary
             tissue_ids[key] = int(value)
 
-input_dir = r"F:\Datasets\BCSS_InstaDeep\masks"
-output_dir = r"F:\Datasets\BCSS_InstaDeep\grouped_masks"
+input_dir = r"F:\Datasets\BCSS_InstaDeep\labels"
+output_dir = r"F:\Datasets\BCSS_InstaDeep\grouped_labels"
 tissue_groups = {1: ['tumor','angioinvasion', 'dcis'], 2: ['stroma'], 3: ['lymphocytic_infiltrate', 'plasma_cells', 'other_immune_infiltrate'], 4: ['necrosis_or_debris'], 5: ['others']}
 
 def create_mapping_dict(tissue_groups):
