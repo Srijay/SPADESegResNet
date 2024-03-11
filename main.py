@@ -37,6 +37,7 @@ test_params = config['test']
 id_to_tissue_dict = {1: 'Tumor', 2: 'Stroma', 3: 'Inflammatory', 4: 'Necrosis', 5: 'Others'}
 num_classes = len(id_to_tissue_dict)
 
+# Function to create a model or load if exists
 def load_model(model_name=''):
     if(model_name=='spaderesnet'):
         model = SPADEResNet(input_nc=3, output_nc=6)
