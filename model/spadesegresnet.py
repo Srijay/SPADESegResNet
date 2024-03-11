@@ -91,48 +91,6 @@ class SPADEResnetBlock(nn.Module):
     def actvn(self, x):
         return F.leaky_relu(x, 2e-1)
 
-class ResnetBlock(nn.Module):
-
-    def __init__(self, dim, padding_type, norm_layer, activation=nn.ReLU(True), use_dropout=False):
-      super(ResnetBlock, self).__init__()
-      self.conv_block = self.build_conv_block(dim, padding_type, norm_layer, activation, use_dropout)
-
-    def build_conv_block(self, dim, padding_type, norm_layer, activation, use_dropout):
-      conv_block = []
-      p = 0
-      if padding_type == 'reflect':
-        conv_block += [nn.ReflectionPad2d(1)]
-      elif padding_type == 'replicate':
-        conv_block += [nn.ReplicationPad2d(1)]
-      elif padding_type == 'zero':
-        p = 1
-      else:
-        raise NotImplementedError('padding [%s] is not implemented' % padding_type)
-
-      conv_block += [nn.Conv2d(dim, dim, kernel_size=3, padding=p),
-                     norm_layer(dim),
-                     activation]
-
-      if use_dropout:
-        conv_block += [nn.Dropout(0.5)]
-
-      p = 0
-      if padding_type == 'reflect':
-        conv_block += [nn.ReflectionPad2d(1)]
-      elif padding_type == 'replicate':
-        conv_block += [nn.ReplicationPad2d(1)]
-      elif padding_type == 'zero':
-        p = 1
-      else:
-        raise NotImplementedError('padding [%s] is not implemented' % padding_type)
-      conv_block += [nn.Conv2d(dim, dim, kernel_size=3, padding=p),
-                     norm_layer(dim)]
-
-      return nn.Sequential(*conv_block)
-
-    def forward(self, x):
-      out = x + self.conv_block(x)
-      return out
 
 class SPADEResNet(torch.nn.Module):
 
@@ -151,7 +109,7 @@ class SPADEResNet(torch.nn.Module):
                       norm_layer(ngf * mult * 2), activation]
         self.downsampler = nn.Sequential(*downsampler)
 
-        ### resnet blocks
+        ### SPADEResNet blocks
         mult = 2 ** n_downsampling
         self.resnetblocks1 = SPADEResnetBlock(ngf * mult, ngf * mult)
         self.resnetblocks2 = SPADEResnetBlock(ngf * mult, ngf * mult)
@@ -168,11 +126,7 @@ class SPADEResNet(torch.nn.Module):
                       norm_layer(int(ngf * mult / 2)), activation]
 
         upsampler += [nn.ReflectionPad2d(3), nn.Conv2d(ngf, output_nc, kernel_size=7, padding=0), nn.Tanh()]
-        # upsampler += [nn.Conv2d(2*ngf, ngf, kernel_size=3, padding=1),
-        #           norm_layer(ngf),
-        #           nn.Conv2d(ngf, output_nc, kernel_size=3, padding=1),
-        #           nn.Tanh()] #For larger to smaller region network
-
+        
         self.upsampler = nn.Sequential(*upsampler)
 
     def forward(self, input):
