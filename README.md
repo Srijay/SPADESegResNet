@@ -3,7 +3,7 @@
 
 ![image](https://github.com/Srijay/SPADESegResNet/assets/6882352/14f39972-d5ba-47a0-aff0-cf322cbde712)
 
-This repository contains code for SPADESegResNet, the model developed for semantic segmentation for breast cancer whole slide images. Please follow the instructions given below to setup the environment and execute the code
+This repository contains code for SPADESegResNet, the model developed for semantic segmentation for breast cancer whole slide images. Please follow the instructions given below to setup the environment and execute the code.
 
 # Set Up Environment
 
