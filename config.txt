@@ -3,16 +3,16 @@ lr = 1e-4
 epochs = 100
 batch_size = 3
 save_model_freq = 1
-model_name = unet++
+model_name = spadesegresnet
 model_dir = ./models
-output_dir = F:\Datasets\BCSS_InstaDeep\splits\test\cropped\768\results
+output_dir = ./results/
 restore_model = 1
 mode = test_patch
-train_images = F:\Datasets\BCSS_InstaDeep\splits\train\cropped\768\images
-train_masks = F:\Datasets\BCSS_InstaDeep\splits\train\cropped\768\grouped_masks
-test_images = F:\Datasets\BCSS_InstaDeep\splits\test\cropped\768\images
-test_masks = F:\Datasets\BCSS_InstaDeep\splits\test\cropped\768\grouped_masks
+train_images = ./data/train/images
+train_masks = ./data/train/grouped_labels
+test_images = ./data/test/images
+test_masks = ./data/test/grouped_labels
 validation_split=0.2
 
 [test]
-test_model_path = ./models/unet++/unet++_50epochs.pt
+test_model_path = ./models/spadesegresnet/spadesegresnet.pt
