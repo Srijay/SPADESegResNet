@@ -13,19 +13,19 @@ def mkdir(dir):
     if not os.path.exists(dir):
         os.makedirs(dir)
 
-input_dir = r"F:\Datasets\BCSS_InstaDeep"
-output_dir = r"F:\Datasets\BCSS_InstaDeep\splits"
+input_dir = "./data"
+output_dir = "./data/splits/"
 split_factor = 0.7
 
-mask_dir = os.path.join(input_dir,"masks")
+mask_dir = os.path.join(input_dir,"labels")
 image_dir = os.path.join(input_dir,"images")
 
 output_train_dir = os.path.join(output_dir,"train")
 output_test_dir = os.path.join(output_dir,"test")
 
-train_mask_dir = os.path.join(output_train_dir,"masks")
+train_mask_dir = os.path.join(output_train_dir,"labels")
 train_image_dir = os.path.join(output_train_dir,"images")
-test_mask_dir = os.path.join(output_test_dir,"masks")
+test_mask_dir = os.path.join(output_test_dir,"labels")
 test_image_dir = os.path.join(output_test_dir,"images")
 
 mkdir(train_mask_dir)
