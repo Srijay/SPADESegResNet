@@ -61,11 +61,13 @@ To test the model, update the parameters inside config.txt file and execute the 
 python main.py 
 ```
 
-Please put mode='test_patch' if want to compute semantic segmentation maps on tiles of same sized used for training. To generate segmentation maps of higher size, please keep mode='test_wsi'. After executing the script, it will compute and store semantic segmentation maps in 'pred' directory inside the output folder path given in config.txt. The script will also print the overall accuracy and store the list of Dice scores and AUC-ROC values inside the output folder with names <model_name>_dice.json and <model_name>_auc.json respectively. Now, to compute mean Dice score, mean AUC-ROC, their standard deviations, boxplots and p-values for statistical significant, please execute the following script by updating suitable paths:
+Please put mode='test_patch' if want to compute semantic segmentation maps on tiles of same sized used for training. To generate segmentation maps of higher size, please keep mode='test_wsi'. After executing the script, it will compute and store semantic segmentation maps in 'pred' directory inside the output folder path given in config.txt. The script will also print the overall accuracy and store the list of Dice scores and AUC-ROC values inside the output folder with names <model_name>_dice.json and <model_name>_auc.json respectively.
 
 ```
 python main.py 
 ```
+
+Now, to compute mean Dice score, mean AUC-ROC, their standard deviations, boxplots and p-values for statistical significant, please execute the following script by updating suitable paths:
 
 ```
 python compute_statistics.py 
