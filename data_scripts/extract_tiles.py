@@ -10,12 +10,12 @@ from PIL import Image
 import numpy as np
 import PIL
 
-folder_path = r"F:\Datasets\BCSS_InstaDeep\splits\train"
-masks_input_folder = os.path.join(folder_path, "grouped_masks")
+folder_path = "./data/train"
+masks_input_folder = os.path.join(folder_path, "grouped_labels")
 images_input_folder = os.path.join(folder_path, "images")
 
-output_dir = r"F:\Datasets\BCSS_InstaDeep\splits\train\cropped\768"
-masks_output_folder = os.path.join(output_dir, "grouped_masks")
+output_dir = "./data/train/cropped/768"
+masks_output_folder = os.path.join(output_dir, "grouped_labels")
 images_output_folder = os.path.join(output_dir, "images")
 
 if not os.path.exists(masks_output_folder):
@@ -77,7 +77,7 @@ def CropImage(imgname):
 
             im_crop_mask_np = np.asarray(im_crop_mask)
 
-            dontcare_percentage = (np.count_nonzero(im_crop_mask_np == 0) / im_crop_mask_np.size) * 100
+            dontcare_percentage = (np.count_nonzero(im_crop_mask_np == 0) / im_crop_mask_np.size) * 100 # Ignore tissue tiles with don't care percentage greater than 50%
 
             if (dontcare_percentage <= 50):
                 output_mask_path = os.path.join(masks_output_folder, im_crop_name)
