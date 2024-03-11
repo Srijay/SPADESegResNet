@@ -24,13 +24,7 @@ pip install torch==2.0.0+cu117 torchvision==0.15.1+cu117 -f https://download.pyt
 
 # Download data and extract tiles
 
-The breast cancer whole slie images along with their semantic segmentation maps can be downloaded from the given link in the assignment document. Please put the downloaded images into the 'data/images' folder and annotations or segmentation maps inside the 'data/labels'. Run the following script to extract tiles of size 768×768 pixels: 
-
-```
-python ./data_scripts/extract_tiles.py
-```
-
-Next step is to group similar tissues together. For this purpose, first download the gtruth_codes.tsv file from the given data link. It's located inside the 'meta' folder. Put it inside the 'data' folder and execute the following command
+The breast cancer whole slide images along with their semantic segmentation maps can be downloaded from the given link in the assignment document. Please put the downloaded images in the 'data/images' folder and annotations or segmentation maps inside the 'data/labels'. First step is to group labels of similar tissue regions together. For this purpose, please download the gtruth_codes.tsv file from the given data link. It's located inside the 'meta' folder. Put it inside the 'data' folder and execute the following command
 
 ```
 python ./data_scripts/construct_groupings.py
@@ -42,19 +36,25 @@ The script will create a folder named 'grouped_labels' inside the 'data' folder.
 python ./data_scripts/split_dataset.py
 ```
 
-It will create the training and testing data inside the 'data/train/' and 'data/test' folders respectively. 
+It will create the training and testing data inside the 'data/train/' and 'data/test/' folders respectively. Now, please run the following script to extract tiles of size 768×768 pixels:
 
+```
+python ./data_scripts/extract_tiles.py
+```
+
+The script will create tiles and put inside the ./data/train/cropped/768 when applied on the training data. Similarly it can be applied on testing data and create testing images inside ./data/folder/cropped/768.
 
 
 # Model Training
 
-Update the training parameters inside the config.txt file, put mode='train' and run the following command:
+Now, we are set to train the model. Please update the training parameters inside the config.txt file, put mode='train' and run the following command:
 
 ```
 python main.py 
 ```
 
 # Testing and Evaluation
+
 To test the model, update the parameters inside config.txt file and execute the main file:
 
 ```
