@@ -1,5 +1,5 @@
 # InstaDeep Take Home Test
-# SPADESegResNet: Framework for Breast Cancer Semantic Segmentation
+# SPADESegResNet: Combining power of SPADE and ResNet for Breast Cancer Semantic Segmentation
 
 ![image](https://github.com/Srijay/SPADESegResNet/assets/6882352/14f39972-d5ba-47a0-aff0-cf322cbde712)
 
