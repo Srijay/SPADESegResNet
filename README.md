@@ -48,7 +48,7 @@ It will create the training and testing data inside the 'data/train/' and 'data/
 
 # Model Training
 
-Update the parameters inside the config.txt file and run the following command:
+Update the training parameters inside the config.txt file and run the following command:
 
 ```
 python main.py 
