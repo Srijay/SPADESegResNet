@@ -30,13 +30,21 @@ The breast cancer whole slie images along with their semantic segmentation maps 
 python ./data_scripts/extract_tiles.py
 ```
 
-The script will create a folder named 'grouped_labels' inside the 'data' folder which will have tiles of size 768×768 pixels from H&E ROIs. To split the dataset into training and testing sets, please run the following script:
+Next step is to group similar tissues together. For this purpose, first download the gtruth_codes.tsv file from the given data link. It's located inside the 'meta' folder. Put it inside the 'data' folder and execute the following command
+
+```
+python ./data_scripts/construct_groupings.py
+```
+
+The script will create a folder named 'grouped_labels' inside the 'data' folder. To split the dataset into training and testing sets, please run the following script:
 
 ```
 python ./data_scripts/split_dataset.py
 ```
 
 It will create the training and testing data inside the 'data/train/' and 'data/test' folders respectively. 
+
+
 
 # Model Training
 
