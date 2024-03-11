@@ -24,7 +24,7 @@ pip install torch==2.0.0+cu117 torchvision==0.15.1+cu117 -f https://download.pyt
 
 # Download data and extract tiles
 
-The breast cancer whole slie images along with their semantic segmentation maps can be downloaded from the given link in the assignment document, and put it in folders named 'images' and 'masks' inside the 'data' folder. Run the script to extract patches: 
+The breast cancer whole slie images along with their semantic segmentation maps can be downloaded from the given link in the assignment document. First, please create a folder named 'data' inside the main directory and folders 'images' and 'masks' inside it. Run the script to extract patches: 
 
 ```
 python extract_patches.py
