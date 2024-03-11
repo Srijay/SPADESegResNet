@@ -24,13 +24,13 @@ pip install torch==2.0.0+cu117 torchvision==0.15.1+cu117 -f https://download.pyt
 
 # Download data and extract tiles
 
-The breast cancer whole slie images along with their semantic segmentation maps can be downloaded from the given link in the assignment document. First, please create a folder named 'data' inside the main directory and folders 'images' and 'masks' inside it. Run the script to extract patches: 
+The breast cancer whole slie images along with their semantic segmentation maps can be downloaded from the given link in the assignment document. Please put the downloaded images into the 'data/images' folder and annotations or segmentation maps inside the 'data/labels'. Run the following script to extract tiles of size 768×768 pixels: 
 
 ```
-python extract_patches.py
+python extract_tiles.py
 ```
 
-The script will create a folder named 'grouped_masks' inside the 'data' folder which will have tiles of size 768×768 pixels from whole slide images.
+The script will create a folder named 'grouped_labels' inside the 'data' folder which will have tiles of size 768×768 pixels from H&E ROIs.
 
 # Model Training
 
