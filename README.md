@@ -27,10 +27,16 @@ pip install torch==2.0.0+cu117 torchvision==0.15.1+cu117 -f https://download.pyt
 The breast cancer whole slie images along with their semantic segmentation maps can be downloaded from the given link in the assignment document. Please put the downloaded images into the 'data/images' folder and annotations or segmentation maps inside the 'data/labels'. Run the following script to extract tiles of size 768×768 pixels: 
 
 ```
-python extract_tiles.py
+python ./data_scripts/extract_tiles.py
 ```
 
-The script will create a folder named 'grouped_labels' inside the 'data' folder which will have tiles of size 768×768 pixels from H&E ROIs.
+The script will create a folder named 'grouped_labels' inside the 'data' folder which will have tiles of size 768×768 pixels from H&E ROIs. To split the dataset into training and testing sets, please run the following script:
+
+```
+python ./data_scripts/split_dataset.py
+```
+
+It will create the training and testing data inside the 'data/train/' and 'data/test' folders respectively. 
 
 # Model Training
 
