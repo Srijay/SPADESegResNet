@@ -17,15 +17,15 @@ input_dir = "./data"
 output_dir = "./data/splits/"
 split_factor = 0.7
 
-mask_dir = os.path.join(input_dir,"labels")
+mask_dir = os.path.join(input_dir,"grouped_labels")
 image_dir = os.path.join(input_dir,"images")
 
 output_train_dir = os.path.join(output_dir,"train")
 output_test_dir = os.path.join(output_dir,"test")
 
-train_mask_dir = os.path.join(output_train_dir,"labels")
+train_mask_dir = os.path.join(output_train_dir,"grouped_labels")
 train_image_dir = os.path.join(output_train_dir,"images")
-test_mask_dir = os.path.join(output_test_dir,"labels")
+test_mask_dir = os.path.join(output_test_dir,"grouped_labels")
 test_image_dir = os.path.join(output_test_dir,"images")
 
 mkdir(train_mask_dir)
