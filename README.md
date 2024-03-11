@@ -48,25 +48,26 @@ It will create the training and testing data inside the 'data/train/' and 'data/
 
 # Model Training
 
-Update the training parameters inside the config.txt file and run the following command:
+Update the training parameters inside the config.txt file, put mode='train' and run the following command:
 
 ```
 python main.py 
 ```
 
-# Testing 
+# Testing and Evaluation
 To test the model, update the parameters inside config.txt file and execute the main file:
 
 ```
 python main.py 
 ```
 
-# Evaluation
-
-The boxplots can be plot using the following command:
+Please put mode='test_patch' if want to compute semantic segmentation maps on tiles of same sized used for training. To generate segmentation maps of higher size, please keep mode='test_wsi'. After executing the script, it will compute and store semantic segmentation maps in 'pred' directory inside the output folder path given in config.txt. The script will also print the overall accuracy and store the list of Dice scores and AUC-ROC values inside the output folder with names <model_name>_dice.json and <model_name>_auc.json respectively. Now, to compute mean Dice score, mean AUC-ROC, their standard deviations, boxplots and p-values for statistical significant, please execute the following script by updating suitable paths:
 
 ```
-python ./plots/boxplot.py 
+python main.py 
 ```
 
+```
+python compute_statistics.py 
+```
 
