@@ -58,7 +58,9 @@ tissue_mapping_dict = {tissue_ids[key]: tissue_mapping_dict[key] for key in tiss
 
 mkdir(output_dir)
 
-for imname in os.listdir(input_dir):
+image_files = [file for file in os.listdir(input_dir) if file.endswith(".png")]
+
+for imname in image_files:
     image_path = os.path.join(input_dir, imname)
     output_path = os.path.join(output_dir, imname)
     mask = Image.open(image_path)
