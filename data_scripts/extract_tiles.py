@@ -14,7 +14,7 @@ folder_path = "./data/splits/train"
 masks_input_folder = os.path.join(folder_path, "grouped_labels")
 images_input_folder = os.path.join(folder_path, "images")
 
-output_dir = "./data/train/splits/cropped/768"
+output_dir = "./data/splits/train/cropped/768"
 masks_output_folder = os.path.join(output_dir, "grouped_labels")
 images_output_folder = os.path.join(output_dir, "images")
 
