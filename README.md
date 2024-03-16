@@ -10,7 +10,7 @@ This repository contains code for SPADESegResNet, the model developed for semant
 Clone the repository, and execute the following commands to set up the environment.
 
 ```
-cd Ouroboros
+cd SPADESegResNet
 
 # create base conda environment
 conda env create -f environment.yml
