@@ -10,11 +10,11 @@ from PIL import Image
 import numpy as np
 import PIL
 
-folder_path = "./data/train"
+folder_path = "./data/splits/train"
 masks_input_folder = os.path.join(folder_path, "grouped_labels")
 images_input_folder = os.path.join(folder_path, "images")
 
-output_dir = "./data/train/cropped/768"
+output_dir = "./data/train/splits/cropped/768"
 masks_output_folder = os.path.join(output_dir, "grouped_labels")
 images_output_folder = os.path.join(output_dir, "images")
 
@@ -93,6 +93,7 @@ def CropImage(imgname):
 
 avgs = []
 masks_image_paths = glob.glob(os.path.join(masks_input_folder,"*.png"))
+
 image_names = []
 for path in masks_image_paths:
     imgname = os.path.split(path)[1].split('.')[0]
