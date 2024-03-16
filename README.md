@@ -24,7 +24,7 @@ pip install torch==2.0.0+cu117 torchvision==0.15.1+cu117 -f https://download.pyt
 
 # Download data and extract tiles
 
-The breast cancer whole slide images, along with their semantic segmentation maps, can be downloaded from the provided link in the assignment document. Please place the downloaded images in the 'data/images' folder and the annotations or segmentation maps inside the 'data/labels' folder. The first step is to group labels of similar tissue regions together. For this purpose, download the gtruth_codes.tsv file from the provided data link, located inside the 'meta' folder. Insert it into the 'data' folder and execute the following command.
+The breast cancer whole slide images, along with their semantic segmentation maps, can be downloaded from the provided link in the assignment document. Please place the downloaded images in the 'data/images' folder and the annotations or segmentation maps inside the 'data/labels' folder. The first step is to group labels of similar tissue regions together. For this purpose, download the gtruth_codes.tsv file from the provided data link, located inside the 'meta' folder. Put it into the 'data' folder and execute the following command.
 
 ```
 python ./data_scripts/construct_groupings.py
