@@ -42,7 +42,7 @@ It will create the training and testing data inside the 'data/train/' and 'data/
 python ./data_scripts/extract_tiles.py
 ```
 
-The script will create tiles and put inside the ./data/train/cropped/768 when applied on the training data. Similarly it can be applied on testing data and create testing images inside ./data/folder/cropped/768.
+The script will create tiles and put inside the ./data/train/splits/cropped/768 when applied on the training data. Similarly it can be applied on testing data and create testing images inside ./data/test/splits/cropped/768/images.
 
 
 # Model Training
