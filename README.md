@@ -57,7 +57,7 @@ All three models discussed in the paper—the proposed SPADESegResNet model, alo
 
 # Testing and Evaluation
 
-To test the model, update the parameters inside config.txt file and execute the main file:
+To test the model, update the parameters inside config.txt file, put restore_model = 1, and execute the main file:
 
 ```
 python main.py 
