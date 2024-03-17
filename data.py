@@ -1,3 +1,9 @@
+"""
+
+BCSS data loader script
+
+"""
+
 import os
 import sys
 from PIL import Image
