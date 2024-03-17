@@ -14,7 +14,17 @@ import json
 import matplotlib.pyplot as plt
 import matplotlib
 import torch.nn.functional as F
-import os 
+import os
+
+from data import BCSSDataset
+from torch import optim
+from torch.optim.lr_scheduler import ReduceLROnPlateau
+from early_stopping import EarlyStopper
+from model.unet import UNet
+from model.nestedunet import NestedUNet
+from model.spadesegresnet import SPADEResNet
+from metrics import *
+from utils import *
 
 #Global parameters
 config = configparser.ConfigParser()
@@ -110,7 +120,7 @@ def train(model, model_name):
     scheduler = ReduceLROnPlateau(optimizer, 'min')
     early_stopper = EarlyStopper(patience=20, min_delta=0)
     class_weights = [0.01, 0.5998164516984599, 0.6570353649810721, 0.8685892941340623, 0.9282517140683683, 0.9463071751180375] # Class weights commputed based on the percentage of classes in the pixel space
-    class_weights = torch.Tensor(class_weights).cuda() 
+    class_weights = torch.Tensor(class_weights).cuda()
     criterion = nn.CrossEntropyLoss(weight=class_weights, reduction='mean')
     start_epoch = 0
 
