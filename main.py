@@ -15,19 +15,6 @@ import matplotlib.pyplot as plt
 import matplotlib
 import torch.nn.functional as F
 
-
-from sklearn.metrics import roc_auc_score
-from data import BCSSDataset
-from torch import optim
-from torch.optim.lr_scheduler import ReduceLROnPlateau
-from early_stopping import EarlyStopper
-from model.unet import UNet
-from model.nestedunet import NestedUNet
-from model.spadesegresnet import SPADEResNet
-from metrics import *
-from utils import *
-from torchsummary import summary
-
 #Global parameters
 config = configparser.ConfigParser()
 config.read('config.txt')
@@ -39,7 +26,7 @@ num_classes = len(id_to_tissue_dict)
 
 # Function to create a model or load if exists
 def load_model(model_name=''):
-    if(model_name=='spaderesnet'):
+    if(model_name=='spadesegresnet'):
         model = SPADEResNet(input_nc=3, output_nc=6)
     elif(model_name=='unet'):
         model = UNet(input_nc=3, output_nc=6)
