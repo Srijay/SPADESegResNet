@@ -8,10 +8,10 @@ model_dir = ./models
 output_dir = ./results/
 restore_model = 0
 mode = train
-train_images = ./data/train/splits/cropped/768/images
-train_masks = ./data/train/splits/cropped/768/grouped_labels
-test_images = ./data/test/splits/cropped/768/images
-test_masks = ./data/test/splits/cropped/768/grouped_labels
+train_images = ./data/splits/train/cropped/768/images
+train_masks = ./data/splits/train/cropped/768/grouped_labels
+test_images = ./data/splits/test/cropped/768/images
+test_masks = ./data/splits/test/cropped/768/grouped_labels
 validation_split=0.2
 
 [test]
