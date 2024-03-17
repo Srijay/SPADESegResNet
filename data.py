@@ -1,17 +1,10 @@
-import glob
-import pickle
 import os
 import sys
-from combat.pycombat import pycombat
 from PIL import Image
 import numpy as np
 import torch
 import torchvision.transforms as T
 from torch.utils.data import Dataset
-import pandas as pd
-from sklearn.neighbors import NearestNeighbors
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
 
 sys.path.insert(0,os.getcwd())
 
