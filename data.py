@@ -40,6 +40,4 @@ class BCSSDataset(Dataset):
 
         labels = self.read_image(label_path)
 
-        labels = labels.astype(np.long)
-
         return image_id, image, labels
